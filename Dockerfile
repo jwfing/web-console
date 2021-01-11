@@ -15,7 +15,7 @@ RUN sed 's/^$USER.*/$USER = "LEAN";/' /webconsole/webconsole.php \
 FROM php:${PHP_VERSION}-apache-buster
 COPY --from=builder /index.php /var/www/html
 
-ADD mongosh_0.6.1_amd64.deb ./mongosh_0.6.1_amd64.deb
+ADD mongosh_0.6.1_amd64.deb mongosh_0.6.1_amd64.deb
 RUN dpkg --install mongosh_0.6.1_amd64.deb
 
 RUN mkdir /var/www/.mongodb
